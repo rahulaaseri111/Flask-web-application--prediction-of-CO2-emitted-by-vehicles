@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Co2 Emission Predictor</title>
+</head>
+<body>
+
+    <h1>Co2 Emission Predictor</h1>
+    {% if result %}
+        <p>{{ result }}</p>
+    {% endif %}
+    
+    
+
+    <form method="post" action="/predict" id="predictForm">
+      <label>Engine Size in L</label><br>
+      <input type="text" name="Engine Size(L)"><br><br>
+      <label>Cylinders</label><br>
+      <input type="text" name="Cylinders"><br><br>
+      <label>Fuel Consumption L/Km</label><br>
+      <input type="text" name="Fuel Consumption Comb (L/100 km)"><br><br>
+
+      <label for="fuelType">Fuel Type</label><br>
+      <select id="fuelType" name="Fuel_Type" onchange="updateFuelType()">
+        <option value="E">Ethanol (E85)</option>
+        <option value="X">Regular gasoline</option>
+        <option value="Z">Premium gasoline</option>
+        <option value="D">Diesel</option>
+      </select><br><br>
+      <input type="submit" value="Predict"><br><br>
+</form>
+
+    
+
+</body>
+</html>
